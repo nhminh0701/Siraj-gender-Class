@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Editor
+
+This is a temporary script file.
+"""
+
+# [height, weight, shoe_size] DATA
+X = [[181, 80, 44], [177, 70, 43], [160, 60, 38], [154, 54, 37], [166, 65, 40],
+     [190, 90, 47], [175, 64, 39],
+     [177, 70, 40], [159, 55, 37], [171, 75, 42],[181, 85, 43] ]
+
+Y = ['male', 'male', 'female', 'female', 'male', 'male', 'female', 'female',
+     'female', 'male', 'male']
+
+
+# accuracy
+from sklearn.metrics import accuracy_score
+#Classifiers import
+from sklearn import tree
+
+# Split the data into test and training (30% for test)
+
+
+X_test= X[:1]
+X=[1:]
+Y_test= Y[:1]
+Y=[1:]
+
+#Initiate the classifier Tree
+clf = tree.DecisionTreeClassifier() #function of tree?
+
+#Tree training
+clf = clf.fit(X, Y)
+
+
+
+#prediction tree out put
+predicttree = clf.predict([[190, 70, 43]])
+print (predicttree)
+
+#accuracy score
+accuracy= accuracy_score(Y_test, predicttree)
+print (accuracy)
+#for K nearest
+  
+from sklearn.neighbors import KNeighborsClassifier
+
+
+# Split the data into test and training (30% for test) ABOVE
+
+#initiate classifier K
+clfK= KNeighborsClassifier(n_neighbors=3)
+
+#K training
+clfK= clfK.fit (X, Y)
+
+
+
+
+#prediction K out put
+predictk= clfK.predict([[190, 70, 43]])
+
+print(predictk)
+
+#Accuracy score
+accuracyK= accuracy_score (Y_test, predictk)
+print (accuracyK)
+
+
+
+
+
