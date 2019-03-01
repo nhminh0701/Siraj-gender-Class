@@ -21,14 +21,16 @@ from sklearn import tree
 
 # Split the data into test and training (30% for test)
 
+from sklearn.model_selection import train_test_split
 
-X_test= X[:1]
-X=[1:]
-Y_test= Y[:1]
-Y=[1:]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.3) # tuy nhiên với số mẫu ít vầy thì không nên tách ra thì hơn...
+
+
 
 #Initiate the classifier Tree
-clf = tree.DecisionTreeClassifier() #function of tree?
+clf = tree.DecisionTreeClassifier() #function of tree? đây là một function viết bằng nền tảng thuật toán tree, 
+                                    #tuy nhiên cần có các mẫu luyện để có được tham số còn thiếu trước khi được một 
+                                    #mô hình 'tree' hoàn chỉnh (và đây là lý do sao ta học toán)
 
 #Tree training
 clf = clf.fit(X, Y)
